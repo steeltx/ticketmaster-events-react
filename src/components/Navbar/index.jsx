@@ -5,6 +5,7 @@ const Navbar = ({onSearch}) => {
     // estado para el input
     const [search, setSearch] = useState('');
 
+    // en cada cambio, se setea el valor ingresado en el estado
     const handleInputChange = (event) => {
         setSearch(event.target.value);
     }
