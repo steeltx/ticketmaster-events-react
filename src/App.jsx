@@ -1,8 +1,8 @@
-import Navbar from "./components/Navbar";
-import "./App.css";
-import Events from "./components/Events";
 import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Events from "./components/Events";
 import SignupForm from "./components/SignupForm";
+import "./App.css";
 
 function App() {
 
@@ -15,9 +15,9 @@ function App() {
 
 	return (
 		<>
-			{/* <Navbar onSearch={handleNavbarSeach} />
-			<Events searchTerm={searchTerm} /> */}
-			<SignupForm />
+			<Navbar onSearch={handleNavbarSeach} />
+			<Events searchTerm={searchTerm} />
+			{/* <SignupForm /> */}
 		</>
 	);
 }
