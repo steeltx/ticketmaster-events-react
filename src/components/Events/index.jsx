@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import useEventsData from "../../hooks/useEventsData";
 import EventItem from "./Components/EventItem";
 
@@ -6,8 +7,11 @@ const Events = ({ searchTerm }) => {
     // usar el hook creado
     const { events, isLoading,  error } = useEventsData();
 
+    const navigate = useNavigate();
+
     const handleEventItemClick = (id) => {
-        console.log(id)
+        // redireccionar  a la pagina de detalle del id correspondiente
+        navigate(`/detail/${id}`);
     }
 
     // iterar cada evento y mostrar el componente con sus propiedades
