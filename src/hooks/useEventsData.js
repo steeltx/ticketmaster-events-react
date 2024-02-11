@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import eventsJSON from '../data/events.json';
 
 const useEventsData = () => {
 
-    const [ data, setData ] = useState(eventsJSON);
-    // obtener la lista de los eventos del JSON
-    const { _embedded: { events } } = data;
+    const [ data, setData ] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState();
+
+    useEffect(() => {
+        setTimeout(() => {
+            try {
+                setData(eventsJSON);
+                setIsLoading(false);
+            } catch (error) {
+                setError(error);
+            }
+        },3000);
+    },[]);
 
     return {
-        events
+        events: data?._embedded?.events || [],
+        isLoading,
+        error
     }
 }
 

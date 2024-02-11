@@ -1,9 +1,15 @@
-import { useState } from "react";
+import {useState, forwardRef, useImperativeHandle } from "react";
 
-const Navbar = ({onSearch}) => {
+// al usar ref, se debe envolver el componente con forwardRef
+const Navbar = forwardRef(({onSearch}, ref) => {
 
     // estado para el input
     const [search, setSearch] = useState('');
+
+    // exponer search para que sea accedido desde el padre con la referencia
+    useImperativeHandle(ref, () => ({
+        search
+    }));
 
     // en cada cambio, se setea el valor ingresado en el estado
     const handleInputChange = (event) => {
@@ -18,7 +24,7 @@ const Navbar = ({onSearch}) => {
     }
 
     return (
-        <div>
+        <div ref={ref}>
             <p>Mi boletera</p>
             <input 
                 type="text" 
@@ -29,6 +35,8 @@ const Navbar = ({onSearch}) => {
             />
         </div>
     )
-}
+});
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;

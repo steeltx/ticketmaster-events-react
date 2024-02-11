@@ -4,7 +4,7 @@ import EventItem from "./Components/EventItem";
 const Events = ({ searchTerm }) => {
 
     // usar el hook creado
-    const { events } = useEventsData();
+    const { events, isLoading,  error } = useEventsData();
 
     const handleEventItemClick = (id) => {
         console.log(id)
@@ -28,6 +28,13 @@ const Events = ({ searchTerm }) => {
             />
         ));
     };
+
+    if(error){
+        return <div>Ha ocurrido un error</div>
+    }
+    if(isLoading){
+        return <div>Cargando resultados ...</div>
+    }
 
     return (
         <div>
