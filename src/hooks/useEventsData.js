@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// hook para hacer llamada al api y guardarlo en estado local
 const useEventsData = () => {
 
     const [ data, setData ] = useState([]);

@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
-import useEventsData from "../../hooks/useEventsData";
+import useEventResults from "../../state/events-results";;
 import styles from './Home.module.css';
 
 const Home = () => {
-	
-	const { events, isLoading,  error, fetchEvents , page} = useEventsData();
+	// se llama a store de zustand	
+	const { data, isLoading,  error, fetchEvents} = useEventResults();
+	const events =  data?._embedded?.events || [];
+	const page =  data?.page || {};
 
     // estado que contiene el valor del input de busqueda
 	const [searchTerm, setSearchTerm] = useState('');
