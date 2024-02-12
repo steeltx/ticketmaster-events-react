@@ -1,7 +1,5 @@
 import { useState } from "react";
-
-// llave con que se almacena en LS
-const LIKED_EVENTS_STORAGE_KEY = 'likedEvents'
+import { LIKED_EVENTS_STORAGE_KEY } from "../utils/constans";
 
 const checkIsEventLiked = (eventId) => {
     // obtener lo guardado en LS con la key indicada
