@@ -53,9 +53,9 @@ const Detail = () => {
                 <h6 className={styles.seatMapTitle}>Mapa del evento</h6>
                 <img src={eventData.seatmap?.staticUrl} alt="Seatmap URL" />
                 <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
-                <p className={styles.priceRangeLegend}>Rango de precios : {eventData.priceRanges?.[0].min}-{eventData.priceRanges?.[0].max} {eventData.priceRanges?.[0].currency}</p>
+                <p className={styles.priceRangeLegend}>Rango de precios : {eventData.priceRanges?.[0].min} - {eventData.priceRanges?.[0].max} {eventData.priceRanges?.[0].currency}</p>
             </div>
-            <a href={eventData.url}>
+            <a href={eventData.url} target="_blank" rel="noopener noreferrer">
                 Ir por los boletos
             </a>
         </div>

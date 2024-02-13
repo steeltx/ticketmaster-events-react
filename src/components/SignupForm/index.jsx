@@ -12,7 +12,7 @@ const SignupForm = () => {
 
     // cuando se envia el formulario
     const handleSubmitForm = (data) => {
-        console.log(data);
+        
     }
 
     return(

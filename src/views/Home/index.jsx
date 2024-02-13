@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
-import useEventResults from "../../state/events-results";;
+import useEventResults from "../../state/events-results";
 import styles from './Home.module.css';
 
 const Home = () => {

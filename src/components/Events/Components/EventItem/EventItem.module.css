@@ -14,10 +14,11 @@
 .eventName {
     margin: 0;
     font-size: 22px;
+    text-align: left;
 }
 
 .eventInfo {
-    text-align: left;
+    text-align: justify;
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;

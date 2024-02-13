@@ -19,6 +19,11 @@ const Events = ({ searchTerm, events }) => {
         if(searchTerm.length > 0){
             eventsFiltered = eventsFiltered.filter((item) => item.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()));
         }
+        if(eventsFiltered.length < 1){
+            return(
+                <p>No hay eventos que coincidan con la busqueda, intente nuevamente.</p>
+            );
+        }
         return eventsFiltered.map( (eventItem) => (
             <EventItem 
                 key={`event-item-${eventItem.id}`} 
@@ -33,7 +38,7 @@ const Events = ({ searchTerm, events }) => {
 
     return (
         <div>
-            Eventos
+            <h2>Eventos</h2>
             { renderEvents() }
         </div>
     )

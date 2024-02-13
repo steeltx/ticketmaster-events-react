@@ -58,7 +58,7 @@ const MyInfo = () => {
                 />
                 <br/>
             </label>
-            <button type="submit" className={styles.submitButton}>Save</button>
+            <button type="submit" className={styles.submitButton}>Guardar</button>
         </form>
     );
 }

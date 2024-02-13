@@ -50,6 +50,10 @@ const LikedEvents = () => {
         return <div>Cargando ...</div>
     }
 
+    if(events.length < 1){
+        return <div>Sin eventos.</div>
+    }
+
     return (
         <div>
             {events.map( (event, index) => (

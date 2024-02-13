@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: justify;
 }
 
 .eventImage {
@@ -37,15 +38,16 @@
 }
 
 .seatMapTitle {
-    margin: 6px 0;
+    margin: 16px 0;
     font-size: 16px;
 }
 
 .pleaseNoteLegend {
-    text-align: left;
+    text-align: justify;
     margin: 10px 0;
 }
 
 .priceRangeLegend {
     margin: 0;
+    font-weight: bold;
 }
