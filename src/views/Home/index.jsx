@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
@@ -8,8 +8,8 @@ import styles from './Home.module.css';
 const Home = () => {
 	// se llama a store de zustand	
 	const { data, isLoading,  error, fetchEvents} = useEventResults();
-	const events =  data?._embedded?.events || [];
-	const page =  data?.page || {};
+	const events = useMemo( () => data?._embedded?.events || [], [data?._embedded?.events]);
+	const page = useMemo( () => data?.page || {}, [data?.page]);
 
     // estado que contiene el valor del input de busqueda
 	const [searchTerm, setSearchTerm] = useState('');
@@ -26,9 +26,10 @@ const Home = () => {
 		fetchEvents(`&keyword=${term}`);
 	}
 
-	const handlePageClick = ( {selected} ) => {
+	// solo recrearse cuando cambie su dependencia de searchTerm o fetchEvents
+	const handlePageClick = useCallback(( {selected} ) => {
 		fetchEvents(`&keyword=${searchTerm}&page=${selected}`);
-	}
+	}, [searchTerm, fetchEvents]);
 
 	const renderEvents = () => {
 		if(isLoading){

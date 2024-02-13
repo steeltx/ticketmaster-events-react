@@ -20,7 +20,7 @@ const MyInfo = () => {
         } catch (error) {
             console.error(error);
         }
-    },[]);
+    },[setValue]);
 
     // guardar la informacion del form
     const handleFormSubmit = (data) => {

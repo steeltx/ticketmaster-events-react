@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import useEventsData from "../../hooks/useEventsData";
 import EventItem from "./Components/EventItem";
@@ -38,4 +39,5 @@ const Events = ({ searchTerm, events }) => {
     )
 }
 
-export default Events;
+// se implementa memo para no re rederizar los elementos hijo
+export default memo(Events);
